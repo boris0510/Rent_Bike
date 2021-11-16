@@ -6,6 +6,11 @@ const routes = [
     name: 'Home',
     component: () => import('../views/Home.vue'),
   },
+  {
+    path: '/lane',
+    name: 'Lane',
+    component: () => import('../views/Lane.vue'),
+  },
 ];
 
 const router = createRouter({
