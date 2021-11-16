@@ -8,7 +8,7 @@ import Banner from '../components/Navbar.vue';
 import Map from '../components/Map.vue';
 
 export default {
-  name: 'Home',
+  name: 'Lane',
   components: {
     Banner,
     Map,
