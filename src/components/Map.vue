@@ -13,7 +13,7 @@
     </div>
     <div class="card-addr">地址 : {{ tempBike.addr }}</div>
     <div class="card-time">更新時間 : {{ tempBike.time }}</div>
-    <div class="crad-close"><i class="bi bi-x"></i></div>
+    <div class="crad-close" @click="closeCard"><i class="bi bi-x"></i></div>
   </div>
 </template>
 
@@ -111,6 +111,9 @@ export default {
       });
       this.cardShow = true;
     },
+    closeCard() {
+      this.cardShow = !this.cardShow;
+    },
   },
   mounted() {
     this.getUserLocation();
@@ -137,10 +140,6 @@ export default {
     this.emitter.on('bikeParking', (data) => {
       this.bikeParking = data;
       this.renderMarker();
-    });
-
-    document.querySelector('.crad-close').addEventListener('click', () => {
-      this.cardShow = false;
     });
   },
 };
@@ -192,7 +191,7 @@ export default {
 }
 .card {
   width: 320px;
-  height: 170px;
+  height: 190px;
   position: absolute;
   z-index: 9999;
   bottom: 50px;
