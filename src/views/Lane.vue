@@ -1,17 +1,17 @@
 <template>
   <Banner/>
-  <Map/>
+  <MapLane/>
 </template>
 
 <script>
 import Banner from '../components/Navbar.vue';
-import Map from '../components/Map.vue';
+import MapLane from '../components/MapLane.vue';
 
 export default {
   name: 'Lane',
   components: {
     Banner,
-    Map,
+    MapLane,
   },
 };
 </script>
