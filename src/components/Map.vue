@@ -20,9 +20,21 @@
 <script>
 import L from 'leaflet';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
+import userIconUrl from '../assets/img/userLocation.png';
+import siteIconUrl from '../assets/img/bikeSite.png';
 
 let map = {};
 const markers = new L.MarkerClusterGroup();
+const userIcon = new L.Icon({
+  iconUrl: userIconUrl,
+  iconSize: [46, 46],
+  iconAnchor: [25, 0],
+});
+const siteIcon = new L.Icon({
+  iconUrl: siteIconUrl,
+  iconSize: [46, 46],
+  iconAnchor: [25, 0],
+});
 
 export default {
   name: 'Map',
@@ -54,7 +66,7 @@ export default {
             this.userLocation.latitude = position.coords.latitude;
             map.setView([this.userLocation.latitude, this.userLocation.longitude]);
             map.panTo([this.userLocation.latitude, this.userLocation.longitude]);
-            L.marker([this.userLocation.latitude, this.userLocation.longitude])
+            L.marker([this.userLocation.latitude, this.userLocation.longitude], { icon: userIcon })
               .addTo(map)
               .bindPopup('您的位置')
               .openPopup();
@@ -70,12 +82,11 @@ export default {
       this.removeMarker();
       this.bikeSite.forEach((item) => {
         markers.addLayer(
-          L.marker([item.StationPosition.PositionLat, item.StationPosition.PositionLon]).on(
-            'click',
-            () => {
-              this.getMarkerDetail(item);
-            },
-          ),
+          L.marker([item.StationPosition.PositionLat, item.StationPosition.PositionLon], {
+            icon: siteIcon,
+          }).on('click', () => {
+            this.getMarkerDetail(item);
+          }),
         );
       });
       map.addLayer(markers);
