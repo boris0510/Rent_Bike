@@ -1,7 +1,7 @@
 # Rent_Bike
 
 # Demo
-https://boris0510.github.io/Rent_Bike/
+https://boris0510.github.io/Rent_Bike/#/
 
 ## Introduction
 * 使用 Vue3 實作自行車道地圖資訊整合網，串接 TDX 運輸資料流通服務 API。
