@@ -4,8 +4,10 @@
     <a href="#" class="navbar-menu" @click.prevent="clickShow"><i class="bi bi-list"></i></a>
     <div class="navbar-logo">
       <h1>RentBike</h1>
-      <a href="/" class="navbar-lg-logo"><img src="../assets/img/logo.png" alt="logo" /></a>
-      <a href="/" class="navbar-md-logo"><img src="../assets/img/logo-md.png" alt="logo" /></a>
+      <a href="#" to="/" class="navbar-lg-logo"><img src="../assets/img/logo.png" alt="logo" /></a>
+      <a href="#" to="/" class="navbar-md-logo"
+        ><img src="../assets/img/logo-md.png" alt="logo"
+      /></a>
     </div>
     <div class="navbar-page">
       <ul>
