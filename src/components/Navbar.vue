@@ -1,11 +1,11 @@
 <template>
   <Loading :active="isLoading" style="z-index: 9999" />
   <div class="navbar">
-    <a href="#" class="navbar-menu" @click="clickShow"><i class="bi bi-list"></i></a>
+    <a href="#" class="navbar-menu" @click.prevent="clickShow"><i class="bi bi-list"></i></a>
     <div class="navbar-logo">
       <h1>RentBike</h1>
-      <a href="#" class="navbar-lg-logo"><img src="../assets/img/logo.png" alt="logo" /></a>
-      <a href="#" class="navbar-md-logo"><img src="../assets/img/logo-md.png" alt="logo" /></a>
+      <a href="/" class="navbar-lg-logo"><img src="../assets/img/logo.png" alt="logo" /></a>
+      <a href="/" class="navbar-md-logo"><img src="../assets/img/logo-md.png" alt="logo" /></a>
     </div>
     <div class="navbar-page">
       <ul>
@@ -23,7 +23,7 @@
       </ul>
     </div>
     <div class="navbar-md-page" :class="{ show: showSearch }">
-      <a href="/"><img src="../assets/img/logo-md-menu.png" alt="logo-md-menu" /></a>
+      <img src="../assets/img/logo-md-menu.png" alt="logo-md-menu" />
       <ul>
         <li><router-link to="/">我要租車 / 還車</router-link></li>
         <li><router-link to="/lane">車道查詢</router-link></li>
@@ -196,7 +196,7 @@ export default {
     .navbar-md-page {
       position: absolute;
       left: 0;
-      z-index: 2000;
+      z-index: 9000;
       height: 100vh;
       background-color: #ffffff;
       border-right: 1px solid rgb(100, 100, 100);
