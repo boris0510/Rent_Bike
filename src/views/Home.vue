@@ -1,6 +1,6 @@
 <template>
-  <Banner/>
-  <Map/>
+  <Banner />
+  <Map />
 </template>
 
 <script>
