@@ -198,8 +198,7 @@ export default {
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken:
-          'pk.eyJ1Ijoic2Nwczg4MDUxMCIsImEiOiJja3Y0dXI5bzc3YzU2MzBwaDhpYTlqaXpnIn0.Ge79DPU7Xnz2-BXEnwXwbQ',
+        accessToken: process.env.VUE_APP_MAPKEY,
       },
     ).addTo(map);
   },
