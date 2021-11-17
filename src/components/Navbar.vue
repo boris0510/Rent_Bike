@@ -1,7 +1,7 @@
 <template>
-  <Loading :active="isLoading" style="z-index: 9999;"/>
+  <Loading :active="isLoading" style="z-index: 9999" />
   <div class="navbar">
-    <a href="#" class="navbar-menu"><i class="bi bi-list"></i></a>
+    <a href="#" class="navbar-menu" @click="clickShow"><i class="bi bi-list"></i></a>
     <div class="navbar-logo">
       <h1>RentBike</h1>
       <a href="#" class="navbar-lg-logo"><img src="../assets/img/logo.png" alt="logo" /></a>
@@ -22,7 +22,7 @@
         </li>
       </ul>
     </div>
-    <div class="navbar-md-page">
+    <div class="navbar-md-page" :class="{ show: showSearch }">
       <a href="/"><img src="../assets/img/logo-md-menu.png" alt="logo-md-menu" /></a>
       <ul>
         <li><router-link to="/">我要租車 / 還車</router-link></li>
@@ -38,7 +38,8 @@
           <span>{{ errMsg }}</span>
         </li>
       </ul>
-      <a href="#" class="navbar-menu-close"><i class="bi bi-x"></i></a>
+      <a href="#" class="navbar-menu-close" @click="clickShow"><i class="bi bi-x"></i></a>
+      <div class="navbar-menu-bg"></div>
     </div>
   </div>
 </template>
@@ -56,6 +57,7 @@ export default {
       bikeParking: [],
       isLoading: false,
       errMsg: '',
+      showSearch: false,
     };
   },
   methods: {
@@ -92,17 +94,14 @@ export default {
           true,
         );
       }
+      this.showSearch = !this.showSearch;
+    },
+    clickShow() {
+      this.showSearch = !this.showSearch;
     },
   },
   mounted() {
     this.getData('https://gist.motc.gov.tw/gist_api/V3/Map/Basic/City?$format=JSON', 'city');
-
-    document.querySelector('.navbar-menu').addEventListener('click', () => {
-      document.querySelector('.navbar-md-page').classList.toggle('show');
-    });
-    document.querySelector('.navbar-menu-close').addEventListener('click', () => {
-      document.querySelector('.navbar-md-page').classList.remove('show');
-    });
   },
 };
 </script>
@@ -147,6 +146,10 @@ export default {
         color: #022020;
         padding: 12px 20px;
         border-radius: 4px;
+        &:hover {
+          background-color: #022020;
+          color: #ffffff;
+        }
       }
       .active {
         background-color: #022020;
@@ -193,16 +196,19 @@ export default {
     .navbar-md-page {
       position: absolute;
       left: 0;
-      z-index: 9999;
+      z-index: 2000;
       height: 100vh;
       background-color: #ffffff;
       border-right: 1px solid rgb(100, 100, 100);
       .navbar-menu-close {
         position: absolute;
-        top: 0;
-        right: 5px;
+        top: 2px;
+        right: 2px;
         font-size: 30px;
         color: #ffffff;
+        &:hover {
+          color: #07b041;
+        }
       }
       ul {
         list-style: none;
@@ -225,6 +231,9 @@ export default {
           color: #022020;
           margin-left: 24px;
           border-radius: 4px;
+          &:hover {
+            color: #07b041;
+          }
         }
         select {
           margin-left: 24px;
