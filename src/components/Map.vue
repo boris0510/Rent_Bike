@@ -33,7 +33,7 @@ const userIcon = new L.Icon({
 const siteIcon = new L.Icon({
   iconUrl: siteIconUrl,
   iconSize: [46, 46],
-  iconAnchor: [25, 0],
+  iconAnchor: [25, 46],
 });
 
 export default {

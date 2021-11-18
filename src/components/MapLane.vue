@@ -70,12 +70,12 @@ const userIcon = new L.Icon({
 const startIcon = new L.Icon({
   iconUrl: startIconUrl,
   iconSize: [46, 46],
-  iconAnchor: [25, 0],
+  iconAnchor: [25, 46],
 });
 const endIcon = new L.Icon({
   iconUrl: endIconUrl,
   iconSize: [46, 46],
-  iconAnchor: [25, 0],
+  iconAnchor: [25, 46],
 });
 
 export default {
@@ -179,6 +179,11 @@ export default {
     },
     removePolyLine() {
       map.removeLayer(myLayer);
+      map.eachLayer((layer) => {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
     },
     clickActive() {
       this.active = !this.active;
