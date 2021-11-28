@@ -191,7 +191,7 @@ export default {
   },
   mounted() {
     this.getUserLocation();
-    this.getData('https://gist.motc.gov.tw/gist_api/V3/Map/Basic/City?$format=JSON', 'city');
+    this.getData('js/json/city.json', 'city');
 
     map = L.map('mapid').setView([0, 0], 14);
     L.tileLayer(

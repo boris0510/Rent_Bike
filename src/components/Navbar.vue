@@ -103,7 +103,7 @@ export default {
     },
   },
   mounted() {
-    this.getData('https://gist.motc.gov.tw/gist_api/V3/Map/Basic/City?$format=JSON', 'city');
+    this.getData('js/json/city.json', 'city');
   },
 };
 </script>
